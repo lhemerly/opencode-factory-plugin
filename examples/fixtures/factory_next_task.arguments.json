@@ -1,0 +1,8 @@
+{
+  "project_id": "project-1",
+  "session_id": "session-1",
+  "adapter_capabilities": [
+    "opencode"
+  ],
+  "idempotency_key": "claim-1"
+}

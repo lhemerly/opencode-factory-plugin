@@ -1,0 +1,8 @@
+{
+  "job_id": "job-1",
+  "attempt_id": "attempt-1",
+  "lease_id": "lease-1",
+  "candidate_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "verification_profile_id": "unit",
+  "idempotency_key": "verify-1"
+}

@@ -1,0 +1,60 @@
+{
+  "state": "running",
+  "state_revision": 1,
+  "current_attempt": {
+    "job_id": "job-1",
+    "attempt_id": "attempt-1",
+    "lease_id": "lease-1",
+    "session_id": "session-1",
+    "lease_expires_at": "2099-01-01T00:00:00Z",
+    "repository_id": "repo-1",
+    "approved_base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "worktree_binding": "/worktrees/approved-task",
+    "task_brief": "Implement the approved change.",
+    "acceptance_criteria": [
+      "Registered checks pass"
+    ],
+    "protected_paths": [
+      "tests/acceptance"
+    ],
+    "allowed_verification_profiles": [
+      "unit"
+    ],
+    "limits": {
+      "max_attempts": 3,
+      "timeout_seconds": 60
+    },
+    "policy_version": "1"
+  },
+  "permitted_next_actions": [
+    "factory_status",
+    "factory_next_task",
+    "factory_request_verification",
+    "factory_submit_candidate"
+  ],
+  "blockers": [],
+  "active_verification_receipt": {
+    "verification_id": "verification-1",
+    "candidate_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "verification_profile_id": "unit",
+    "profile_version": "1",
+    "environment_id": "clean-checkout",
+    "outcome": "passed",
+    "commands": [
+      {
+        "command": "npm test",
+        "exit_status": 0
+      }
+    ],
+    "artifacts": [
+      {
+        "reference": "artifact:test-log",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    ]
+  },
+  "delivery_reference": null,
+  "freshness_timestamp": "2026-10-11T21:00:00Z",
+  "next_retry_at": null,
+  "outcome": null
+}

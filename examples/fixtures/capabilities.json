@@ -1,0 +1,16 @@
+{
+  "protocol_min": "0.1",
+  "protocol_max": "0.1",
+  "operations": [
+    "factory_status",
+    "factory_next_task",
+    "factory_request_verification",
+    "factory_submit_candidate"
+  ],
+  "worker_adapters": [
+    "opencode"
+  ],
+  "verification_profiles": [
+    "unit"
+  ]
+}

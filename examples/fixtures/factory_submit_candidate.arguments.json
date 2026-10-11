@@ -1,0 +1,15 @@
+{
+  "job_id": "job-1",
+  "attempt_id": "attempt-1",
+  "lease_id": "lease-1",
+  "candidate_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "verification_id": "verification-1",
+  "change_summary": "Implemented the approved change.",
+  "artifact_manifest": [
+    {
+      "reference": "artifact:test-log",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ],
+  "idempotency_key": "submit-1"
+}

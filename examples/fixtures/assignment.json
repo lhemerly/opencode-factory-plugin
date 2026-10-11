@@ -1,0 +1,25 @@
+{
+  "job_id": "job-1",
+  "attempt_id": "attempt-1",
+  "lease_id": "lease-1",
+  "session_id": "session-1",
+  "lease_expires_at": "2099-01-01T00:00:00Z",
+  "repository_id": "repo-1",
+  "approved_base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "worktree_binding": "/worktrees/approved-task",
+  "task_brief": "Implement the approved change.",
+  "acceptance_criteria": [
+    "Registered checks pass"
+  ],
+  "protected_paths": [
+    "tests/acceptance"
+  ],
+  "allowed_verification_profiles": [
+    "unit"
+  ],
+  "limits": {
+    "max_attempts": 3,
+    "timeout_seconds": 60
+  },
+  "policy_version": "1"
+}

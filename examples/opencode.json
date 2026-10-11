@@ -1,0 +1,4 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["file:///absolute/path/opencode-factory-plugin/dist/index.js"]
+}

@@ -1,0 +1,9 @@
+{
+  "protocol_version": "0.1",
+  "request_id": "example-request",
+  "project_id": "project-1",
+  "session_id": "session-1",
+  "error": {
+    "code": "stale_lease"
+  }
+}
