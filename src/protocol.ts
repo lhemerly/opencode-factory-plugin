@@ -14,24 +14,31 @@ export const artifact = z.object({
   reference: z.string().min(1).max(2048),
   sha256: z.string().regex(/^[a-f0-9]{64}$/),
 });
-export const receipt = z.object({
-  verification_id: id,
-  candidate_commit: commit,
-  verification_profile_id: id,
-  profile_version: id,
-  environment_id: id,
-  outcome: z.enum(["passed", "failed"]),
-  commands: z
-    .array(
-      z.object({
-        command: z.string().max(1000),
-        exit_status: z.number().int(),
-      }),
-    )
-    .min(1)
-    .max(100),
-  artifacts: z.array(artifact).max(100),
-});
+export const receipt = z
+  .object({
+    verification_id: id,
+    candidate_commit: commit,
+    verification_profile_id: id,
+    profile_version: id,
+    environment_id: id,
+    outcome: z.enum(["passed", "failed"]),
+    commands: z
+      .array(
+        z.object({
+          command: z.string().max(1000),
+          exit_status: z.number().int(),
+        }),
+      )
+      .min(1)
+      .max(100),
+    artifacts: z.array(artifact).max(100),
+  })
+  .refine(
+    (value) =>
+      value.outcome !== "passed" ||
+      value.commands.every((command) => command.exit_status === 0),
+    { message: "Passed receipts require every command to exit successfully" },
+  );
 export const assignment = z.object({
   job_id: id,
   attempt_id: id,

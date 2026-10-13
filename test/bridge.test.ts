@@ -124,6 +124,28 @@ for (const op of operations)
         .success,
     );
   });
+for (const exitStatus of [-1, 1])
+  test(`passed receipt with command exit ${exitStatus} is rejected`, async (t) => {
+    const f = await fixture(t);
+    f.current.active_verification_receipt.commands.push({
+      command: "runtime check",
+      exit_status: exitStatus,
+    });
+    await assert.rejects(
+      f.client().call("factory_status", inputs.factory_status, f.ctx),
+      code("validation_failed"),
+    );
+  });
+test("failed receipt preserves nonzero commands for rework", async (t) => {
+  const f = await fixture(t);
+  f.current.active_verification_receipt.outcome = "failed";
+  f.current.active_verification_receipt.commands[0].exit_status = 7;
+  const result = await f
+    .client()
+    .call("factory_status", inputs.factory_status, f.ctx);
+  assert.equal(result.active_verification_receipt?.outcome, "failed");
+  assert.equal(result.active_verification_receipt?.commands[0].exit_status, 7);
+});
 for (const op of operations.filter((op) => op !== "factory_status"))
   test(`${op} reconciles a lost response after restart with one effect`, async (t) => {
     const f = await fixture(t);
